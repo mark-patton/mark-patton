@@ -2,7 +2,7 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![www][www-shield]][www-url]
 
-#### Check out my personal website at [markpatton.cloud][1]
+
 
 [1]: https://markpatton.cloud
 [linkedin-shield]: https://img.shields.io/badge/in-linkedin-blue
