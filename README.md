@@ -9,3 +9,5 @@
 [linkedin-url]: https://www.linkedin.com/in/markpatton03/
 [www-shield]: https://img.shields.io/badge/www-markpatton.cloud-lightgrey
 [www-url]: https://markpatton.cloud
+
+![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=mark-patton&hide=contribs,prs&count_private=true&theme=algolia&show_icons=true)
