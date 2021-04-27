@@ -1,17 +1,35 @@
-pool: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
 
-steps:
-- task: UseDotNet@2
-  displayName: 'Get latest .NET SDK'
-  inputs:
-    version: '3.1.300'
-- task: DotNetCoreCLI@2
-  displayName: 'Install almops .NET global tool'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install --global almops'
-- bash: |
-   almops config --org myorgname --token $(System.AccessToken)
-   almops update variables -p $(System.TeamProject) --id $(variable.group.id) --type vg-test --var version
-  displayName: 'Update XXX value'
+variables:
+  - group: vg-semantic-versioning
+
+resources:
+- repo: self
+
+name: '$(major).$(minor).$(patch)'
+
+stages:
+
+- stage: Pack
+  displayName: 'Package AMI Image'
+  jobs:
+  - job : Pack
+    workspace:
+      clean: all
+    displayName: 'Pack AMI Image'
+    steps:
+      - task: UseDotNet@2
+        displayName: 'Get latest .NET SDK'
+        inputs:
+          version: '3.1.300'
+      - task: DotNetCoreCLI@2
+        displayName: 'Install almops .NET global tool'
+        inputs:
+          command: custom
+          custom: tool
+          arguments: 'install --global almops'
+      - bash: |
+         almops config --org myorgname --token $(System.AccessToken)
+         almops update variables -p $(System.TeamProject) --id $(variable.group.id) --type vg-test --var version
+        displayName: 'Update XXX value'
