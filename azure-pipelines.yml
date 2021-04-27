@@ -30,6 +30,6 @@ stages:
           custom: tool
           arguments: 'install --global almops'
       - bash: |
-         almops config --org myorgname --token $(System.AccessToken)
+         almops config --org markpatton0191 --token $(System.AccessToken)
          almops update variables -p $(System.TeamProject) --id $(variable.group.id) --type vg-test --var version
         displayName: 'Update XXX value'
