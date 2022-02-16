@@ -1,5 +1,4 @@
-pool:
-  vmImage: 'ubuntu-latest'
+pool: Linux-SelfHosted
 
 variables:
   - group: vg-semantic-versioning
