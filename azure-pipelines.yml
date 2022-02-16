@@ -22,13 +22,3 @@ stages:
         displayName: 'Get latest .NET SDK'
         inputs:
           version: '3.1.300'
-      - task: DotNetCoreCLI@2
-        displayName: 'Install almops .NET global tool'
-        inputs:
-          command: custom
-          custom: tool
-          arguments: 'install --global almops'
-      - bash: |
-         almops config --org markpatton0191 --token $(System.AccessToken)
-         almops update variables -p $(System.TeamProject) --id $(variable.group.id) --type vg-test --var version
-        displayName: 'Update XXX value'
